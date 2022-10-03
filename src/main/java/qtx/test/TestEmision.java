@@ -1,7 +1,6 @@
 package qtx.test;
 
 import qtx.rabbitmq.EmisorNotificacion;
-import qtx.rabbitmq.EmisorRabbitmq;
 
 public class TestEmision {
 	public static String nombres[] = {
@@ -15,7 +14,7 @@ public class TestEmision {
 	};
 
 	public static void main(String[] args) {
-		EmisorNotificacion emisor = EmisorRabbitmq.getEmisorNotificacion("exClientesNuevos");
+		EmisorNotificacion emisor = new EmisorNotificacion("exClientesNuevos");
 		for(int i = 0; i < nombres.length; i++) {
 			String mensaje = "{\"nombre\": \"" + nombres[i] + "\", \"numCte\":" + (i + 100) + "}";
 			emisor.emitirNotificacion(mensaje);			

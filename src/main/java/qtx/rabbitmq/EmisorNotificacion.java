@@ -7,12 +7,25 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
-public class EmisorNotificacion extends EmisorRabbitmq{
+public class EmisorNotificacion {
 	protected String nombreExchange;
+	protected String hostRabbitMQ;
 	
 	public EmisorNotificacion(String nombreIntermediario) {
 		super();
 		this.nombreExchange = nombreIntermediario;
+		this.hostRabbitMQ = "localhost";
+	}
+	public EmisorNotificacion(String nombreIntermediario, String hostRabbitMQ) {
+		super();
+		this.nombreExchange = nombreIntermediario;
+		this.hostRabbitMQ = hostRabbitMQ;
+	}
+	public String getHostRabbitMQ() {
+		return hostRabbitMQ;
+	}
+	public void setHostRabbitMQ(String hostRabbitMQ) {
+		this.hostRabbitMQ = hostRabbitMQ;
 	}
 	public String getNombreExchange() {
 		return nombreExchange;
